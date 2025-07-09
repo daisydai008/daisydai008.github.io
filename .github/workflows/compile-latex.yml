@@ -23,22 +23,31 @@ jobs:
         # This ensures we can push back to the repo
         token: ${{ secrets.GITHUB_TOKEN }}
         
-    # Set up LaTeX environment with XeLaTeX
-    - name: Setup LaTeX
-      uses: xu-cheng/latex-action@v3
-      with:
-        # Specify the working directory where your main .tex file is located
-        working_directory: CV
-        # Main LaTeX file to compile
-        root_file: cv.tex
-        # Use XeLaTeX compiler (supports Unicode and custom fonts)
-        latexmk_use_xelatex: true
-        # Additional LaTeX packages that might be needed
-        pre_compile: |
-          tlmgr update --self
-          tlmgr install fontspec unicode-math xetex fontawesome5 sourcesanspro tcolorbox environ trimspaces
-        # Arguments for latexmk
-        args: -pdf -file-line-error -halt-on-error -interaction=nonstopmode
+    # Install complete LaTeX environment
+    - name: Install LaTeX
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y texlive-full
+        
+    # Compile LaTeX with proper error handling
+    - name: Compile LaTeX
+      run: |
+        cd CV
+        echo "Starting XeLaTeX compilation..."
+        xelatex -interaction=nonstopmode cv.tex
+        
+        # Check if compilation succeeded
+        if [ $? -eq 0 ]; then
+          echo "✅ First pass completed successfully"
+        else
+          echo "❌ First pass failed, showing errors:"
+          cat cv.log
+          exit 1
+        fi
+        
+        # Second pass for references
+        echo "Running second pass..."
+        xelatex -interaction=nonstopmode cv.tex
         
     # Check if PDF was generated successfully
     - name: Check if PDF exists
