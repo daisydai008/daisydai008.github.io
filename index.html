@@ -230,6 +230,70 @@
             text-decoration: underline;
         }
 
+        .video-section {
+            margin-bottom: 40px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 20px;
+        }
+
+        .video-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .video-item h3 {
+            color: #2c3e50;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+
+        .video-placeholder {
+            width: 100%;
+            height: 200px;
+            background: linear-gradient(45deg, #e9ecef, #f8f9fa);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            border: 2px dashed #6c757d;
+            color: #6c757d;
+            font-size: 1.1em;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .video-description {
+            color: #495057;
+            font-size: 0.95em;
+            line-height: 1.6;
+            text-align: justify;
+        }
+
+        .video-tech-stack {
+            margin-top: 10px;
+            font-size: 0.85em;
+            color: #6c757d;
+        }
+
+        .video-tech-stack strong {
+            color: #2c3e50;
+        }
+
         .download-section {
             text-align: center;
             margin-top: 40px;
@@ -278,6 +342,16 @@
             .contact-header {
                 flex-direction: column;
                 gap: 10px;
+            }
+            
+            .video-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .video-placeholder {
+                height: 180px;
+                font-size: 1em;
             }
         }
     </style>
@@ -337,6 +411,38 @@
                     <div class="pub-authors">Jing Dai (Co-Inventor)</div>
                     <div class="pub-venue">Invention Patent, ZL116423533A <a href="https://pss-system.cponline.cnipa.gov.cn/documents/detail?prevPageTit=changgui" target="_blank" class="pub-link">[Patent Link]</a></div>
                     <div class="pub-year">2023</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section video-section">
+            <h2>Project Demonstrations</h2>
+            <div class="video-grid">
+                <div class="video-item">
+                    <h3>IntuitCap Motion Capture System</h3>
+                    <div class="video-placeholder">
+                        📹 Demo Video<br>
+                        <small>60-DOF Upper-body Motion Capture</small>
+                    </div>
+                    <div class="video-description">
+                        Real-time demonstration of the 60-DOF upper-limb capture system enabling precise teleoperation of dual-arm robots. Features lightweight exoskeleton with magnetic encoders, force feedback, and synchronized digital twin visualization in Unity3D.
+                    </div>
+                    <div class="video-tech-stack">
+                        <strong>Tech Stack:</strong> Unity3D, C++, CANFD, Socket Communication, Magnetic Encoders
+                    </div>
+                </div>
+                <div class="video-item">
+                    <h3>Bionic Peacock Robot</h3>
+                    <div class="video-placeholder">
+                        📹 Demo Video<br>
+                        <small>Voice-Controlled Robotic Peacock</small>
+                    </div>
+                    <div class="video-description">
+                        Award-winning bionic robotic peacock with complex motion behaviors including tail spreading, wing actuation, head movement, and coordinated walking. Features voice recognition and modular STM32-based control architecture.
+                    </div>
+                    <div class="video-tech-stack">
+                        <strong>Tech Stack:</strong> STM32, C++, Voice Recognition, Servo Motors, Brushless DC Motors
+                    </div>
                 </div>
             </div>
         </section>
