@@ -277,17 +277,25 @@
             text-align: center;
         }
 
-        .pub-tech-stack {
-            font-size: 0.85em;
-            color: #2c3e50;
-            margin-top: 5px;
-            font-weight: bold;
-        }
-
-        .pub-venue-year {
+        .pub-info {
             color: #6c757d;
             font-style: italic;
-            margin-bottom: 5px;
+            margin-bottom: 8px;
+            font-size: 0.95em;
+        }
+
+        .pub-tech {
+            background: #f8f9fa;
+            border-radius: 4px;
+            padding: 6px 10px;
+            margin-top: 8px;
+            font-size: 0.8em;
+            color: #495057;
+            border-left: 3px solid #2c3e50;
+        }
+
+        .pub-tech strong {
+            color: #2c3e50;
         }
 
         .download-section {
@@ -399,14 +407,14 @@
                 <div class="publication">
                     <div class="pub-title">IntuitCap: A 60-DOF Upper-body Motion Capture System for Dexterous Robot Manipulation</div>
                     <div class="pub-authors">Jing Dai, Jianbo Yuan, Yiwen Lu, et al.</div>
-                    <div class="pub-venue-year">Under review, 2025 <a href="#" class="pub-link">[arXiv - Coming Soon]</a></div>
-                    <div class="pub-tech-stack">Tech Stack: Unity3D, C++, CANFD, Socket Communication, Magnetic Encoders, Force Feedback</div>
+                    <div class="pub-info">Under review • 2025</div>
+                    <div class="pub-tech"><strong>Tech:</strong> Unity3D, C++, CANFD, Magnetic Encoders, Force Feedback</div>
                 </div>
                 <div class="publication">
                     <div class="pub-title">A Bionic Peacock</div>
-                    <div class="pub-authors">Jing Dai (Co-Inventor)</div>
-                    <div class="pub-venue-year">Invention Patent ZL116423533A, 2023 <a href="https://pss-system.cponline.cnipa.gov.cn/documents/detail?prevPageTit=changgui" target="_blank" class="pub-link">[Patent Link]</a></div>
-                    <div class="pub-tech-stack">Tech Stack: STM32, C++, Voice Recognition (LU-ASR01), Servo Motors, Brushless DC Motors</div>
+                    <div class="pub-authors">Jing Dai (Embedded System Design and Motion Control)</div>
+                    <div class="pub-info">National First Prize in National College Mechanical Innovation Design Competition • 2023</div>
+                    <div class="pub-tech"><strong>Tech:</strong> STM32, C++, Voice Recognition, Servo/Brushless Motors</div>
                 </div>
             </div>
         </section>
@@ -415,7 +423,7 @@
             <h2>Project Demonstrations</h2>
             <div class="video-grid">
                 <div class="video-item">
-                    <h3>IntuitCap Motion Capture System</h3>
+                    <h3>IntuitCap</h3>
                     <div class="video-placeholder">
                         📹 Demo Video<br>
                         <small>60-DOF Upper-body Motion Capture</small>
