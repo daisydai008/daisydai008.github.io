@@ -261,20 +261,24 @@
             font-weight: bold;
         }
 
-        .video-placeholder {
+        .video-container {
+            position: relative;
             width: 100%;
-            height: 200px;
-            background: linear-gradient(45deg, #e9ecef, #f8f9fa);
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
             border-radius: 5px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 15px;
-            border: 2px dashed #6c757d;
-            color: #6c757d;
-            font-size: 1.1em;
-            font-weight: bold;
-            text-align: center;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 5px;
         }
 
         .pub-info {
@@ -353,9 +357,8 @@
                 gap: 20px;
             }
             
-            .video-placeholder {
-                height: 180px;
-                font-size: 1em;
+            .video-container {
+                padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio on mobile */
             }
         }
     </style>
@@ -424,16 +427,24 @@
             <div class="video-grid">
                 <div class="video-item">
                     <h3>IntuitCap</h3>
-                    <div class="video-placeholder">
-                        📹 Demo Video<br>
-                        <small>60-DOF Upper-body Motion Capture</small>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube-nocookie.com/embed/Kb9Vc4adVYU?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=Kb9Vc4adVYU&start=3" 
+                            title="IntuitCap: 60-DOF Motion Capture System Demo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
                 <div class="video-item">
                     <h3>Bionic Peacock Robot</h3>
-                    <div class="video-placeholder">
-                        📹 Demo Video<br>
-                        <small>Voice-Controlled Robotic Peacock</small>
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube-nocookie.com/embed/9M1W24l25_8?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=9M1W24l25_8&start=3" 
+                            title="Bionic Peacock Robot - Award-Winning Design"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
                     </div>
                 </div>
             </div>
