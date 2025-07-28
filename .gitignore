@@ -67,5 +67,5 @@ yarn-error.log*
 .cache/
 *.cache
 
-# 临时视频
+# 视频
 video/
