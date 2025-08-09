@@ -18,7 +18,7 @@
 %-------------------------------------------------------------------------------
 
 % A4 paper size by default, use 'letterpaper' for US letter
-\documentclass[11pt, a4paper]{awesome-cv}
+\documentclass[12pt, a4paper]{awesome-cv}
 
 
 
@@ -26,13 +26,13 @@
 \usepackage{hyperref}
 \usepackage{lastpage}
 \usepackage{graphicx,calc}
-\definecolor{link}{RGB}{28,74,238} 
+\definecolor{link}{RGB}{28,74,238}
 
 
 \setmainfont{Times New Roman}
 
 % Configure page margins with geometry
-\geometry{left=1.4cm, top=.4cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.4cm, top=.4cm, right=1.4cm, bottom=1.8cm, footskip=15pt}
 
 % Color for highlights
 % Awesome Colors: awesome-emerald, awesome-skyblue, awesome-red, awesome-pink, awesome-orange, awesome-nephritis, awesome-concrete, awesome-darknight, awesome-SEUgreen
@@ -58,20 +58,94 @@
 \makeatother
 
 %-------------------------------------------------------------------------------
+%	CUSTOM FONT SIZE AND SPACING OVERRIDES
+%-------------------------------------------------------------------------------
+% Scale font sizes to match 12pt document class
+\renewcommand*{\paragraphstyle}{\fontsize{11pt}{1.3em}\bodyfontlight\upshape\color{text}}
+\renewcommand*{\descriptionstyle}[1]{{\fontsize{11pt}{1.3em}\bodyfontlight\upshape\color{text} #1}}
+\renewcommand*{\entrytitlestyle}[1]{{\fontsize{12pt}{1.3em}\bodyfont\bfseries\color{darktext} #1}}
+\renewcommand*{\entrypositionstyle}[1]{{\fontsize{10pt}{1.2em}\bodyfont\color{graytext} #1}}
+\renewcommand*{\entrydatestyle}[1]{{\fontsize{10pt}{1.2em}\bodyfontlight\color{graytext} #1}}
+\renewcommand*{\entrylocationstyle}[1]{{\fontsize{10pt}{1.2em}\bodyfontlight\slshape\color{awesome} #1}}
+
+% Scale honor-related styles
+\renewcommand*{\honortitlestyle}[1]{{\fontsize{11pt}{1.3em}\bodyfont\color{graytext} #1}}
+\renewcommand*{\honorpositionstyle}[1]{{\fontsize{11pt}{1.3em}\bodyfont\bfseries\color{darktext} #1}}
+\renewcommand*{\honordatestyle}[1]{{\fontsize{10pt}{1.2em}\bodyfont\color{graytext} #1}}
+\renewcommand*{\honorlocationstyle}[1]{{\fontsize{10pt}{1.2em}\bodyfontlight\slshape\color{awesome} #1}}
+
+% Adjust spacing for better consistency
+\renewcommand{\acvSectionTopSkip}{6mm}
+\renewcommand{\acvSectionContentTopSkip}{1mm}
+
+% Fix cvparagraph spacing issues
+\renewenvironment{cvparagraph}{%
+  \vspace{0mm}
+  \paragraphstyle
+}{%
+  \par
+  \vspace{1mm}
+}
+
+% Fix cventry to remove negative spacing
+\renewcommand*{\cventry}[5]{%
+  \vspace{1mm}  % Changed from -3.5mm
+  \setlength\tabcolsep{0pt}
+  \setlength{\extrarowheight}{0pt}
+  \allowbreak  % Allow page breaks before entries
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5.5cm} R{5.5cm}}
+    \ifempty{#1#3#4}
+      {\entrytitlestyle{#2}\setlength{\leftmargin}{-20em} \noindent\\
+        \multicolumn{1}{L{\textwidth}}{\descriptionstyle{#5}}}
+      {\ifempty{#2#3}
+          {\entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+          {\entrytitlestyle{#2} & \entrylocationstyle{#3} \\
+            \entrypositionstyle{#1} & \entrydatestyle{#4} \\}
+        \multicolumn{2}{L{\textwidth}}{\descriptionstyle{#5}}}
+  \end{tabular*}%
+}
+
+% Fix cvitemize2 to have proper spacing
+\renewenvironment{cvitemize2}{%
+  \vspace{1mm}  % Changed from -4mm
+  \begin{justify}
+  \begin{enumerate}[leftmargin=4ex, nosep, noitemsep]
+    \setlength{\parskip}{0pt}
+    \renewcommand{\labelenumi}{[\theenumi]}
+}{%
+  \end{enumerate}
+  \end{justify}
+  \vspace{2mm}  % Changed from -4mm
+}
+
+% Fix cvhonors spacing
+\renewenvironment{cvhonors}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-1mm}
+  \begin{center}
+    \setlength\tabcolsep{0pt}
+    \setlength{\extrarowheight}{0pt}
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} C{1.5 cm} L{\textwidth - 3.0cm} R{1.5cm}}
+}{%
+    \end{tabular*}
+  \end{center}
+}
+
+%-------------------------------------------------------------------------------
 %	PERSONAL INFORMATION
 %	Comment any of the lines below if they are not required
 %-------------------------------------------------------------------------------
 % Available options: circle|rectangle,edge/noedge,left/right
-%\photo[rectangle,noedge,right]{picture.jpg}  
-\name{Jing}{Dai}
-\position{\ } 
+%\photo[rectangle,noedge,right]{picture.jpg}
+\name{Jing (Daisy)}{Dai}
+\position{\ }
 
 %\mobile{(+00)123-456-789}
 \email{daisydai@sjtu.edu.cn}
 %\birth{199x}
-% \homepage{https://daisydai008.github.io/my-website/}
-\extrainfo{\href{https://daisydai008.github.io/}{personal website}}
-\github{daisydai008}
+% \homepage{daisydai008.github.io}
+\extrainfo{\href{https://daisydai008.github.io/}{daisydai008.github.io}}
+% \github{daisydai008}
 %\linkedin{username}
 %\gitlab{gitlab-id}
 %\stackoverflow{SO-id}{SO-name}
@@ -111,13 +185,11 @@
 %	Each section is imported separately, open each file in turn to modify content
 %-------------------------------------------------------------------------------
 \input{cv/Education.tex}
+\input{cv/Research Statement.tex}
 \input{cv/Publications.tex}
 \input{cv/Research Projects.tex}
-\newpage
+\input{cv/Teaching Experience.tex}
 \input{cv/Technical Skills.tex}
 \input{cv/Awards and Honors.tex}
-\input{cv/Volunteer Services.tex}
-\input{cv/Self-Evaluation.tex}
 %-------------------------------------------------------------------------------
 \end{document}
-

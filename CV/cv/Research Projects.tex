@@ -1,130 +1,49 @@
 \cvsection{Research Projects}
 
+\vspace{-8mm}
+
 \begin{cventries}
-  \vspace{-2mm}
-  % \cventry
-  %   {Graduation Program | Advisor: Dong Wang, \textit{Associate Professor of School of Mechanical Engineering, SJTU}}% Empty position Founding Title (No. 2021xxxxxxxxxxx)
-  %   {Research on free-form digital light processing (DLP) 3D printing} % Project
-  %   {Shanghai} % Empty location
-  %   {Sep. 2022 - Now} % Empty date
-  %   { 
-  %       % \vspace{-0.5mm} 
-  %       Aim to build a 6-DoF DLP 3D printing platform and develop a corresponding multi-physics model-based computational inverse design tool 
-  %       \vspace{4.5mm} 
-	 %      \begin{cvitems} % Description(s) bullet points
-		%         \item{build a free-form 6-DOF DLP 3D printing system using 6-axis robot arm}
-  %               \item{build multi-physics model for the free-form DLP 3D printing process considering light field and resin photopolymerization}
-  %               \item{develop a spatio-temporal optimization algorithm for high-resolution grayscale DLP 3D printing}
-  %               \item{inversely design and fabricate high-resolution structures, such as micro-fluidic devices, lattice metamaterials, and pneumatic actuators}
-  %               \item{visualize the objective structure based on the planned path and projected images}
-		% %        \item{}
-		% %        \item{}
-		%       \end{cvitems}
-  %   }
 
-  % % \cventry
-  % %   {Advisor: Dong Wang, \textit{Associate Professor of School of Mechanical Engineering, SJTU}}% Empty position Founding Title (No. 2021xxxxxxxxxxx)
-  % %   {Research on digital light processing (DLP) 3D printing} % Project
-  % %   {Shanghai} % Empty location
-  % %   {Mar. 2022 - Now} % Empty date
-  % %   { 
-  % %           %\vspace{-4.5mm} 
-	 % %      \begin{cvitems} % Description(s) bullet points
-		% %         \item{build multi-physics model for the grayscale DLP printing process considering light field and resin photopolymerization}
-  % %               \item{develop a spatio-temporal optimization algorithm for high-resolution grayscale DLP 3D printing}
-  % %               \item{design high-resolution structures inversely}
-		% % %        \item{}
-		% % %        \item{}
-		% %       \end{cvitems}
-  % %   }
-
-  % \cventry
-  %   {Advisor: Dong Wang, \textit{Associate Professor of School of Mechanical Engineering, SJTU}}% Empty position Founding Title (No. 2021xxxxxxxxxxx)
-  %   {Research on voxel design for soft robots} % Project
-  %   {Shanghai} % Empty location
-  %   {Mar. 2022 - Now} % Empty date
-  %   { 
-  %       Aim to develop a holistic computational tool which enables the high-resolution fabrication of soft robots with desired performance
-  %       \vspace{4.5mm} 
-	 %      \begin{cvitems} % Description(s) bullet points
-		%         \item{model the DLP 3D printing process considering Gaussian beam propagation, light divergence, and the photobleaching effect of the resin}
-  %               \item{calibrate the light field parameters of the digital light engine and the photopolymerization parameters of different resin}
-  %               \item{establish a ``grayscale value - degree of conversion - mechanical properties'' relationship}
-		%        \item{simulate the degree of conversion(DoC) of layered photopolymerized polymers}
-		% %        \item{}
-		%       \end{cvitems}
-  %  %         \vspace{4.5mm} 
-  %   }
-
-  \cventry
-    {Algorithm Engineer | Advisor: Weixin Yan, Jianbo Yuan | Zhejiang DexRobot Technology Co., Ltd.} % Title
-    {Upper Limb 60-DOF Data Acquisition and Digital Twin System} % Project name
-    {Shanghai} % Location
-    {Sep. 2024 -- Mar. 2025} % Date (update if different)
-    {
-      Aim to develop a 60-DOF upper-limb capture system that enables real-time teleoperation and supports imitation learning, incorporating force feedback to facilitate delicate in-hand manipulation.
-      \vspace{4.5mm}
-      \begin{cvitems}
-        \item{\textbf{Structure $\&$ Hardware:} Built a lightweight exoskeleton using 3D-printed nylon structures, integrating magnetic encoders for joint angle sensing and smart gloves for hand joint capture and tactile feedback}
-        \item{\textbf{Communication integration:} Integrated Socket and CANFD bus communication for low-latency peripheral device control and data streaming}
-        \item{\textbf{Software development:} Implemented kinematic modeling and mapping algorithms to reconstruct operator motion and developed a Unity3D-based digital twin environment and real-time teleoperation of dual-arm JAKA Mini robots and anthropomorphic hands with synchronized motion and force feedback}
-        \end{cvitems}
-    }
-
-    \vspace{4.5mm}
     \cventry
-      {Research Intern | Zhejiang DexRobot Technology Co., Ltd.} % Title
-      {Dexterous Manipulation and In-Hand Operation with 021 Dex-Hand} % Project name
-      {Shanghai / Remote} % Location
+      {Research Intern | \href{https://dex-robot.com}{DexRobot Inc.}} % Title
+      {Task-Centric Reinforcement Learning for High-DOF Dexterous Hands} % Project name
+      {Shanghai} % Location
       {Feb. 2025 -- Present} % Update as needed
       {
-        Aim to develop robust control strategies for anthropomorphic hands to achieve human-level dexterity in object manipulation and support learning-based teleoperation frameworks
-        \vspace{4.5mm}
-        \begin{cvitems} 
-          \item{Reviewed major manipulation methodologies, including model-based and learning-based techniques, to inform algorithm design and system benchmarking}     
-          \item{Built simulation environments in MuJoCo and Isaac Gym, and deployed benchmark datasets such as ARCTIC to evaluate manipulation accuracy and generalization} 
-          \item{Implemented hardware and control integration for the custom-built five-fingered 021 Dex-Hand, enabling adaptive in-hand manipulation under dynamic contact conditions} 
+        Advancing dexterous manipulation through task-centric RL applied to high-DOF robotic hands. Leveraging real-to-sim human demonstrations and large-scale datasets for robust skill transfer.
+        \begin{cvitems}
+          \item{\textbf{RL-based dexterous retargeting algorithm} (proposed; first author): Pioneered a novel retargeting method to map human demonstrations to robot morphology while preserving task semantics, achieving 30\% increase in real-world teleoperation efficiency compared to DexPilot baseline}
+          \item{\textbf{Large-scale real+synthetic manipulation dataset}: Contributed to RL methodology development for physical plausibility recovery of human demonstrations; building dataset of 1M+ cross-embodiment demonstrations for classified grasping tasks on dexterous hands of various morphology}
+          \item{\textbf{Simulation setup}: Constructed simulation scenes in MuJoCo and Isaac Gym; deployed benchmark datasets such as ARCTIC to evaluate manipulation accuracy and generalization}
+          \item{\textbf{Policy deployment}: Implemented hardware and control integration for the 19-DOF DexHand 021, enabling adaptive in-hand manipulation under dynamic contact conditions}
         \end{cvitems}
-        \vspace{4.5mm}
       }
-    
-
+  \cventry
+    {Engineering Intern | \href{https://dex-robot.com}{DexRobot Inc.}} % Title
+    {Upper Limb 60-DOF Data Acquisition and Digital Twin System} % Project name
+    {Shanghai} % Location
+    {Sep. 2024 -- Mar. 2025} % Date
+    {
+      Engineered a 60-DOF upper-limb capture system that enables real-time teleoperation for high-fidelity human demonstration capture
+      \begin{cvitems}
+        \item{\textbf{Mechanical Design:} Designed lightweight exoskeleton using 3D-printed nylon structures, integrating magnetic encoders for joint angle sensing and smart gloves with tactile feedback for hand motion capture}
+        \item{\textbf{Embedded Systems:} Implemented Socket and CANFD bus communication for low-latency peripheral device control and data streaming, achieving 10ms end-to-end latency}
+        \item{\textbf{Robot Kinematics \& Control:} Implemented kinematic modeling and mapping algorithms to reconstruct operator motion. Created Unity3D-based digital twin environment for real-time teleoperation of dual-arm JAKA robots and DexHand 021 systems}
+      \end{cvitems}
+    }
     \cventry
-      {National First Prize in The Mechanical Innovation Design Competition | Advisor: Gang Wang, \textit{Professor of ME, HNU}} % Title
-      {A Bionic Peacock} % Project name
+      {National First Prize, Mechanical Innovation Design Competition | Advisor: Gang Wang} % Title
+      {Bionic Robotic Peacock} % Project name
       {Changsha} % Location
       {May 2022 -- Aug. 2022} % Date
       {
-        Aim to develop a bionic robotic peacock with embedded control, multi-axis actuation, and voice interaction, replicating real-life structure and behavior for educational exhibition in museums and science centers.
-        \vspace{4.5mm}
-        \begin{cvitems} % Description(s) bullet points
-          \item{Developed an embedded robotic control system based on dual STM32 microcontrollers, programmed in C++ using Keil IDE, with a modular architecture supporting coordinated actuation.}
-          \item{Implemented complex motion behaviors including tail spreading/closing, wing spreading/retracting, head lowering/raising, dancing, and walking through heterogeneous motor control:
-          \begin{itemize}
-            \item Servo motor for tail articulation
-            \item Brushless DC motors for neck and wing mechanisms
-            \item Worm gear reduction motors for leg movement and walking stability
-          \end{itemize}}
-          \item{Integrated real-time voice control via the LU-ASR01 speech recognition module, enabling natural-language motion commands and hands-free interaction, and conducted three full design iterations to optimize motion smoothness and structural reliability.}
-		      \end{cvitems}
-      }    
-
-  
-  %  \cventry
-  %   {UGIETP | team leader | Advisor: Zhuang Fu, \textit{Associate Professor of School of Mechanical Engineering, SJTU}}% Empty position Founding Title (No. 2021xxxxxxxxxxx)
-  %   {Research on badminton recycle device design} % Project
-  %   {Shanghai} % Empty location
-  %   {Mar. 2019 - Jun. 2020} % Empty date
-  %   { 
-  %           %\vspace{-4.5mm} 
-	 %      \begin{cvitems} % Description(s) bullet points
-		%         \item{investigate the recycle of badminton}
-  %               \item{design and build a physical model of the recycle device}
-  %               \item{analyze motion trajectories of the badminton recycle device}
-  %               \item{fabricate the badminton recycle device}
-		% %        \item{}
-		% %        \item{}
-		%       \end{cvitems}
-  %   }
-    
+        Engineered a bionic robotic peacock with embedded control, multi-axis actuation, and voice interaction for educational exhibition
+        \begin{cvitems}
+          \item{Architected embedded control system based on dual STM32 microcontrollers, programmed in embedded C using Keil IDE, with modular architecture supporting coordinated actuation of 11 motors}
+          \item{Programmed complex motion behaviors (tail spreading, wing retracting, dancing, walking) through heterogeneous motor control: servo motors for tail, brushless DC motors for neck/wings, worm gear motors for legs}
+          \item{Integrated real-time voice control via LU-ASR01 speech recognition module; conducted three design iterations to optimize motion smoothness and structural reliability}
+        \end{cvitems}
+      \vspace{4mm}
+      }
+% \vspace{-7mm}
 \end{cventries}

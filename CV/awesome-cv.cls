@@ -199,7 +199,7 @@
 \newcommand*{\headerlastnamestyle}[1]{{\fontsize{28pt}{1em}\headerfont\bfseries\color{text} #1}}
 \newcommand*{\headerpositionstyle}[1]{{\fontsize{10pt}{1em}\bodyfont\color{awesome} #1}}%\scshape
 \newcommand*{\headeraddressstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}} %\itshape
-\newcommand*{\headersocialstyle}[1]{{\fontsize{8pt}{1em}\headerfont\color{text} #1}}
+\newcommand*{\headersocialstyle}[1]{{\fontsize{10pt}{1em}\headerfont\color{text} #1}}
 \newcommand*{\headerquotestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\itshape\color{darktext} #1}}
 \newcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\scshape\color{lighttext} #1}}
 \newcommand*{\sectionstyle}[1]{{\fontsize{16pt}{1em}\bodyfont\bfseries\color{text}\sectioncolor{#1}}}
@@ -228,7 +228,7 @@
 
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
-\newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
+\newcommand*{\skillsetstyle}[1]{{\fontsize{11pt}{1em}\bodyfontlight\color{text} #1}}
 
 %%% For elements of CV Tags
 %\newcommand*{\cvtag}[1]{%
@@ -565,6 +565,7 @@
   \sectionstyle{#1}
   \phantomsection
   \color{gray}\vhrulefill{0.9pt}
+  \nopagebreak[4]
 }
 
 % Define a subsection for CV
@@ -579,7 +580,7 @@
 % Define a paragraph for CV
 \newenvironment{cvparagraph}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-3mm}
+  \vspace{0mm}
   \paragraphstyle
 }{%
   \par
@@ -589,7 +590,7 @@
 % Define an environment for cventry
 \newenvironment{cventries}
 {%
-  \vspace{\acvSectionContentTopSkip}
+  \vspace{0mm}
   %\begin{center}
 }
 {
@@ -598,10 +599,11 @@
 % Define an entry of cv information
 % Usage: \cventry{<position>}{<title>}{<location>}{<date>}{<description>}
 \newcommand*{\cventry}[5]{%
- \vspace{-3.5mm}  
+ \vspace{1mm}  
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \allowbreak  % Allow page breaks before entries
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5.5cm} R{5.5cm}}
     \ifempty{#1#3#4}
       {\entrytitlestyle{#2}\setlength{\leftmargin}{-20em} \noindent\\
         \multicolumn{1}{L{\textwidth}}{\descriptionstyle{#5}}}
@@ -624,7 +626,7 @@
 \newcommand*{\cvsubentry}[4]{%
   \setlength\tabcolsep{0pt}
   \setlength{\extrarowheight}{0pt}
-  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 4.5cm} R{4.5cm}}
+  \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}} L{\textwidth - 5.5cm} R{5.5cm}}
     \setlength\leftskip{0.2cm}
     \subentrytitlestyle{#2} & \ifthenelse{\equal{#1}{}}
       {\subentrydatestyle{#3}}{}
@@ -640,7 +642,7 @@
 % Define an environment for cvhonor
 \newenvironment{cvhonors}{%
   \vspace{\acvSectionContentTopSkip}
-  \vspace{-2mm}
+  \vspace{0mm}
   \begin{center}
     \setlength\tabcolsep{0pt}
     \setlength{\extrarowheight}{0pt}
@@ -675,7 +677,7 @@
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitems}{%
-  \vspace{-4.0mm}
+  \vspace{0mm}
   \begin{justify}
   \begin{itemize}[leftmargin=2ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -683,12 +685,12 @@
 }{%
   \end{itemize}
   \end{justify}
-  \vspace{-4.0mm}
+  \vspace{1mm}
 }
 
 % Define an environment for cvitems(for cventry)
 \newenvironment{cvitemize2}{%
-  \vspace{-4.0mm}
+  \vspace{0mm}
   \begin{justify}
   \begin{enumerate}[leftmargin=4ex, nosep, noitemsep]
     \setlength{\parskip}{0pt}
@@ -696,5 +698,5 @@
 }{%
   \end{enumerate}
   \end{justify}
-  \vspace{-4.0mm}
+  \vspace{1mm}
 }
