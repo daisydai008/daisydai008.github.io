@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jing Dai - Academic CV</title>
-    <meta name="description" content="Academic CV of Jing Dai - M.E. in Mechanical Engineering">
+    <title>Jing (Daisy) Dai</title>
+    <meta name="description" content="Academic CV of Jing (Daisy) Dai - M.E. in Mechanical Engineering">
     <style>
         * {
             margin: 0;
@@ -49,12 +49,14 @@
             height: 120px;
             border-radius: 50%;
             background: #e9ecef;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 40px;
-            color: #6c757d;
             border: 3px solid #dee2e6;
+            overflow: hidden;
+        }
+
+        .profile-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .name-title {
@@ -158,7 +160,7 @@
             color: #6c757d;
             font-size: 0.9em;
             margin-bottom: 10px;
-        }
+        }artificial intelligence
 
         .entry-description {
             color: #495057;
@@ -179,7 +181,7 @@
         .publication::before {
             content: counter(pub-counter);
             position: absolute;
-            left: 0;
+            left: 0;artificial intelligence
             top: 0;
             background: #2c3e50;
             color: white;
@@ -292,7 +294,7 @@
             background: #f8f9fa;
             border-radius: 4px;
             padding: 6px 10px;
-            margin-top: 8px;
+            margin-top: 15px;
             font-size: 0.8em;
             color: #495057;
             border-left: 3px solid #2c3e50;
@@ -300,6 +302,19 @@
 
         .pub-tech strong {
             color: #2c3e50;
+        }
+
+        .publication .video-container {
+            margin-top: 15px;
+            margin-bottom: 15px;
+        }
+
+        .publication .entry-description {
+            color: #495057;
+            text-align: justify;
+            line-height: 1.6;
+            margin-top: 10px;
+            margin-bottom: 15px;
         }
 
         .download-section {
@@ -333,30 +348,30 @@
                 padding: 20px;
                 margin: 10px;
             }
-            
+
             .profile-section {
                 flex-direction: column;
                 text-align: center;
             }
-            
+
             .name-title {
                 text-align: center;
             }
-            
+
             .header h1 {
                 font-size: 2em;
             }
-            
+
             .contact-header {
                 flex-direction: column;
                 gap: 10px;
             }
-            
+
             .video-grid {
                 grid-template-columns: 1fr;
                 gap: 20px;
             }
-            
+
             .video-container {
                 padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio on mobile */
             }
@@ -367,9 +382,11 @@
     <div class="container">
         <header class="header">
             <div class="profile-section">
-                <div class="profile-img">👨‍🎓</div>
+                <div class="profile-img">
+                    <img src="assets/avatar.jpg" alt="Jing Dai">
+                </div>
                 <div class="name-title">
-                    <h1>Jing Dai</h1>
+                    <h1>Jing (Daisy) Dai</h1>
                     <div class="title">M.E. in Mechanical Engineering</div>
                 </div>
             </div>
@@ -381,9 +398,9 @@
         </header>
 
         <section class="section">
-            <h2>Research Interests</h2>
+            <h2>Research Statement</h2>
             <div class="research-interests">
-                My research focuses on robotics, digital fabrication, and human-robot interaction. I am particularly interested in deep learning, dexterous manipulation techniques, and teleoperation frameworks. My work combines mechanical engineering principles with cutting-edge robotics technology to create solutions for intelligent manufacturing and human-robot collaboration.
+                My research bridges the gap between mechatronics and AI to advance embodied intelligence through robot learning with concrete hardware implementations. I specialize in developing task-centric reinforcement learning algorithms for high-DOF dexterous robotic hands, enabling them to learn complex manipulation skills from human demonstrations. My work encompasses the full stack of robotics—from embedded systems and real-time control to advanced RL algorithms and simulation frameworks. I am particularly passionate about hardware-software co-design approaches that ensure theoretical advances translate into real-world robotic capabilities. Through my research, I aim to create robotic systems that can seamlessly collaborate with humans in manufacturing, healthcare, and daily life scenarios, ultimately pushing the boundaries of what robots can perceive, learn, and manipulate in unstructured environments.
             </div>
         </section>
 
@@ -394,7 +411,7 @@
                 <div class="entry-subtitle">Shanghai Jiao Tong University</div>
                 <div class="entry-date">Sep. 2023 - June 2026 (Expected)</div>
                 <div class="entry-description">
-                    Advisor: Weinxin Yan - Associate Professor of ME, SJTU<br>
+                    Advisor: Weixin Yan - Associate Professor of ME, SJTU<br>
                 </div>
             </div>
             <div class="entry">
@@ -405,53 +422,71 @@
         </section>
 
         <section class="section">
-            <h2>Publications</h2>
+            <h2>Projects</h2>
             <div class="publications-list">
                 <div class="publication">
                     <div class="pub-title">IntuitCap: A 60-DOF Upper-body Motion Capture System for Dexterous Robot Manipulation</div>
                     <div class="pub-authors">Jing Dai, Jianbo Yuan, Yiwen Lu, et al.</div>
-                    <div class="pub-info">Under review • 2025</div>
-                    <div class="pub-tech"><strong>Tech:</strong> Unity3D, C++, CANFD, Magnetic Encoders, Force Feedback</div>
+                    <div class="pub-info">2025</div>
+                    <div class="entry-description" style="margin-top: 10px; margin-bottom: 15px;">
+                        IntuitCap represents a comprehensive motion capture system integrating hardware sensing, real-time communication, and digital twin visualization. The system architecture spans multiple technical layers: at the hardware level, 60 magnetic encoders capture joint angles across the upper body with sub-degree precision, while custom CANFD bus protocols handle high-bandwidth sensor data streaming. The software stack includes low-level embedded firmware for sensor fusion, middleware for kinematic mapping between human and robot morphologies, and a Unity3D-based visualization layer that provides operators with real-time visual feedback. Achieving 10ms end-to-end latency required careful optimization across the entire pipeline—from ADC sampling rates to network packet scheduling. The system currently interfaces with dual-arm JAKA robots and the 19-DOF DexHand, with haptic feedback channels enabling bidirectional interaction. This full-stack integration enables intuitive teleoperation for complex manipulation tasks that would be difficult to program explicitly.
+                    </div>
+                    <div class="video-container" style="margin-top: 15px;">
+                        <iframe
+                            src="https://www.youtube-nocookie.com/embed/BACYYixDXss?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=BACYYixDXss&start=3"
+                            title="IntuitCap: 60-DOF Motion Capture System Demo"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="pub-tech"><strong>Tech Stack:</strong> Unity3D, C++, CANFD, Magnetic Encoders, Force Feedback, Socket Programming</div>
                 </div>
                 <div class="publication">
-                    <div class="pub-title">A Bionic Peacock</div>
+                    <div class="pub-title">Bionic Robotic Peacock</div>
                     <div class="pub-authors">Jing Dai (Embedded System Design and Motion Control)</div>
                     <div class="pub-info">National First Prize in Mechanical Innovation Design Competition • 2023</div>
-                    <div class="pub-tech"><strong>Tech:</strong> STM32, C++, Voice Recognition, Servo/Brushless Motors</div>
+                    <div class="entry-description" style="margin-top: 10px; margin-bottom: 15px;">
+                        Building a robot peacock that dances is exactly as fun as it sounds. This one responds to voice commands—you can tell it to spread its tail, dance, or strut around, and it actually does it. The tricky part was coordinating 11 different motors to make the movements look natural. The tail uses servo motors for those precise feather movements, while the neck and wings need brushless motors for smoother motion. Getting the walking gait right with worm gear motors took some iterations, but now it has this confident peacock strut that makes people smile. There's something magical about a robot bird that listens and responds at exhibitions.
+                    </div>
+                    <div class="video-container" style="margin-top: 15px;">
+                        <iframe
+                            src="https://www.youtube-nocookie.com/embed/_ZRWi5l0RrA?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=_ZRWi5l0RrA&start=3"
+                            title="Bionic Peacock Robot - Award-Winning Design"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    <div class="pub-tech"><strong>Tech Stack:</strong> STM32, Embedded C, Voice Recognition, Servo/Brushless/Worm Gear Motors, Keil IDE</div>
+                </div>
+                <div class="publication">
+                    <div class="pub-title">Task-Centric Reinforcement Learning for High-DOF Dexterous Hands</div>
+                    <div class="pub-authors">Research Intern at DexRobot Inc.</div>
+                    <div class="pub-info">Ongoing Research • Feb. 2025 - Present</div>
+                    <div class="entry-description" style="margin-top: 10px; margin-bottom: 15px;">
+                        Learning from human demonstrations offers a clean and scalable alternative to teleoperation for high-DOF dexterous manipulation. My research focuses on developing task-centric retargeting algorithms that preserve the semantic intent of human demonstrations while adapting to the morphological constraints of robotic hands. This approach addresses a fundamental challenge in robotics: the correspondence problem between human and robot embodiments. By extracting task-relevant features from human demonstrations and mapping them to robot-executable policies, we enable robots to acquire complex manipulation skills without extensive manual programming or teleoperation setup. The work encompasses both algorithmic development for cross-embodiment transfer and the construction of large-scale datasets spanning diverse manipulation tasks and hand morphologies. Current efforts include deploying learned policies on the 19-DOF DexHand platform for adaptive in-hand manipulation under dynamic contact conditions. Preprints detailing our methodology and experimental results are forthcoming.
+                    </div>
+                    <div class="pub-tech"><strong>Tech Stack:</strong> PyTorch, MuJoCo, Isaac Gym, Python, ROS2, Real-to-Sim Transfer Learning</div>
                 </div>
             </div>
         </section>
 
-        <section class="section video-section">
-            <h2>Project Demonstrations</h2>
-            <div class="video-grid">
-                <div class="video-item">
-                    <h3>IntuitCap</h3>
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube-nocookie.com/embed/BACYYixDXss?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=BACYYixDXss&start=3" 
-                            title="IntuitCap: 60-DOF Motion Capture System Demo"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
-                <div class="video-item">
-                    <h3>Bionic Peacock Robot</h3>
-                    <div class="video-container">
-                        <iframe 
-                            src="https://www.youtube-nocookie.com/embed/_ZRWi5l0RrA?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=_ZRWi5l0RrA&start=3" 
-                            title="Bionic Peacock Robot - Award-Winning Design"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                </div>
+        <section class="section">
+            <h2>About Me</h2>
+            <div class="research-interests">
+                <p style="margin-bottom: 15px;">
+                    Outside of robotics, I enjoy reading widely—from literature to philosophy. There's something refreshing about diving into different worlds and perspectives through books. Film is another passion of mine; I appreciate how visual and audio storytelling can convey complex emotions and ideas in ways that words alone cannot.
+                </p>
+                <p style="margin-bottom: 15px;">
+                    I'm also an avid runner. There's a meditative quality to long runs that helps clear the mind and maintain balance in life. These interests keep me grounded and curious about the world beyond the lab.
+                </p>
+                <p>
+                    I believe the best robotics research emerges from this intersection of technical rigor and humanistic thinking. Working with diverse teams—from hardware engineers to AI researchers to designers—has taught me that breakthrough innovations often come from unexpected cross-pollination of ideas. This interdisciplinary approach shapes both my research philosophy and my collaborative style.
+                </p>
             </div>
         </section>
 
         <div class="download-section">
-            <a href="CV/cv.pdf" class="download-btn" target="_blank">📄 Download Full CV</a>
+            <a href="CV/cv.pdf" class="download-btn" target="_blank">📄 My CV</a>
         </div>
     </div>
 </body>
