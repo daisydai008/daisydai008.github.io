@@ -1,0 +1,49 @@
+\cvsection{科研项目}
+
+\vspace{-8mm}
+
+\begin{cventries}
+
+    \cventry
+      {研究实习生 | \href{https://dex-robot.com}{DexRobot Inc.}} % Title
+      {高自由度灵巧手的任务中心强化学习} % Project name
+      {上海} % Location
+      {2025年2月~--~现在} % Update as needed
+      {
+        通过应用于高自由度机器人手的任务中心强化学习推进灵巧操作。利用真实到仿真的人类演示和大规模数据集进行稳健的技能迁移。
+        \begin{cvitems}
+          \item{\textbf{基于强化学习的灵巧重定向算法} (提出；第一作者): 开创性地提出了一种新颖的重定向方法，将人类演示映射到机器人形态，同时保持任务语义，相比DexPilot基线，实际远程操作效率提高30\%}
+          \item{\textbf{大规模真实+合成操作数据集}: 为人类演示的物理合理性恢复贡献强化学习方法开发；构建了100万+跨体现演示数据集，用于各种形态灵巧手的分类抓取任务}
+          \item{\textbf{仿真环境搭建}: 在MuJoCo和Isaac Gym中构建仿真场景；部署ARCTIC等基准数据集来评估操作准确性和泛化能力}
+          \item{\textbf{策略部署}: 为19自由度DexHand 021实现硬件和控制集成，在动态接触条件下实现自适应手内操作}
+        \end{cvitems}
+      }
+  \cventry
+    {工程实习生 | \href{https://dex-robot.com}{DexRobot Inc.}} % Title
+    {上肢60自由度数据采集与数字孪生系统} % Project name
+    {上海} % Location
+    {2024年9月~--~2025年3月} % Date
+    {
+      设计了一个60自由度上肢捕获系统，实现了用于高保真人类演示捕获的实时远程操作
+      \begin{cvitems}
+        \item{\textbf{机械设计:} 使用3D打印尼龙结构设计轻量化外骨骼，集成磁性编码器进行关节角度感知和带触觉反馈的智能手套进行手部运动捕获}
+        \item{\textbf{嵌入式系统:} 实现Socket和CANFD总线通信，用于低延迟外围设备控制和数据流传输，实现10ms端到端延迟}
+        \item{\textbf{机器人运动学与控制:} 实现运动学建模和映射算法以重构操作员运动。创建基于Unity3D的数字孪生环境，用于双臂JAKA机器人和DexHand 021系统的实时远程操作}
+      \end{cvitems}
+    }
+    \cventry
+      {机械创新设计大赛全国一等奖 | 指导教师: 王纲} % Title
+      {仿生孔雀机器人} % Project name
+      {长沙} % Location
+      {2022年5月~--~2022年8月} % Date
+      {
+        设计了一个具有嵌入式控制、多轴驱动和语音交互功能的仿生孔雀机器人，用于教育展示
+        \begin{cvitems}
+          \item{基于双STM32微控制器构建嵌入式控制系统，使用Keil IDE进行嵌入式C编程，采用模块化架构支持11个电机的协调驱动}
+          \item{通过异构电机控制编程复杂运动行为(开屏、收翼、舞蹈、行走): 尾部和腿部使用舵机，颈部和翅膀使用无刷直流电机}
+          \item{通过LU-ASR01语音识别模块集成实时语音控制；进行三次设计迭代以优化运动平滑性和结构可靠性}
+        \end{cvitems}
+      \vspace{4mm}
+      }
+% \vspace{-7mm}
+\end{cventries}
