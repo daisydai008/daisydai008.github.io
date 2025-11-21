@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jing (Daisy) Dai - Robotics Researcher</title>
     <meta name="description" content="Jing (Daisy) Dai - Robotics researcher specializing in dexterous manipulation and robot learning">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🤖</text></svg>">
     <style>
         * {
             margin: 0;
@@ -533,6 +534,37 @@
             line-height: 1.8;
         }
 
+        /* Footer */
+        .footer {
+            margin-left: var(--sidebar-width);
+            padding: 30px 60px;
+            background: var(--primary-color);
+            color: var(--white);
+            text-align: center;
+            font-size: 0.9em;
+        }
+
+        .footer a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer-divider {
+            color: var(--text-light);
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             :root {
@@ -597,6 +629,11 @@
                 flex: 1 1 auto;
                 min-width: 100px;
             }
+
+            .footer {
+                margin-left: 0;
+                padding: 25px 20px;
+            }
         }
     </style>
 </head>
@@ -625,7 +662,7 @@
                 <h1>Jing (Daisy) Dai</h1>
                 <p class="subtitle">M.E. in Mechanical Engineering</p>
                 <p class="intro-text">
-                    I bridge mechatronics and machine learning to advance intelligent robotic systems through hardware-software integration. My research focuses on developing task-centric reinforcement learning algorithms for high-DOF dexterous hands, enabling robots to learn complex manipulation skills from human demonstrations. I work across the full stack of robotics—from embedded systems and real-time control to advanced RL algorithms and simulation frameworks.
+                    I'm fascinated by how robots can learn manipulation from human demonstrations—not just mimicking trajectories, but understanding the task structure that makes skills transferable across different hands. My research explores this through both sides: I build teleoperation hardware that captures human manipulation (IntuitCap), and I develop reinforcement learning algorithms that extract task-centric representations from these demonstrations. The core question driving my work: how do we enable robots to understand what a manipulation task is trying to achieve, rather than just replaying the movements we show them?
                 </p>
                 <div class="contact-links">
                     <a href="mailto:daisy_dai@sjtu.edu.cn">📧 Email</a>
@@ -634,7 +671,7 @@
                     <a href="CV/cv.pdf" target="_blank">📄 Download CV</a>
                 </div>
                 <p class="personality-hint">
-                    Outside the lab, I explore questions of consciousness through science fiction and find clarity in long-distance running.
+                    Outside the lab, I explore questions of consciousness through science fiction and find clarity and peace from long-distance running.
                 </p>
             </div>
         </div>
@@ -644,13 +681,10 @@
             <div class="section-header">
                 <h2>Research & Projects</h2>
                 <p class="section-intro">
-                    My work spans the full robotics pipeline, combining theoretical advances in machine learning with practical hardware implementations to create robotic systems that can learn and adapt.
+                    The bionic peacock I built in 2022 required hand-engineering each motion pattern—feasible for one demonstration, impossible for the thousands of manipulation tasks humans perform daily. This limitation shaped my research direction.
                 </p>
-            </div>
-
-            <div class="research-statement">
-                <p>
-                    My research bridges the gap between mechatronics and AI to advance embodied intelligence through robot learning with concrete hardware implementations. I specialize in developing task-centric reinforcement learning algorithms for high-DOF dexterous robotic hands, enabling them to learn complex manipulation skills from human demonstrations. My work encompasses the full stack of robotics—from embedded systems and real-time control to advanced RL algorithms and simulation frameworks. I am particularly passionate about hardware-software co-design approaches that ensure theoretical advances translate into real-world robotic capabilities. Through my research, I aim to create robotic systems that can seamlessly collaborate with humans in manufacturing, healthcare, and daily life scenarios, ultimately pushing the boundaries of what robots can perceive, learn, and manipulate in unstructured environments.
+                <p class="section-intro">
+                    Building teleoperation systems deepened this insight: you record finger trajectories but miss what's happening to the object being manipulated. IntuitCap started as research hardware and became a commercial product at DexRobot Inc., while my RL algorithms infer object dynamics and task structure from human demonstrations. The projects below show how hardware constraints and algorithmic insights inform each other.
                 </p>
             </div>
 
@@ -661,7 +695,7 @@
                         <h3>Task-Centric Reinforcement Learning for High-DOF Dexterous Hands</h3>
                         <p class="project-meta">Research Intern at DexRobot Inc. | Feb. 2025 - Present</p>
                         <div class="project-links">
-                            <a href="https://arxiv.org/abs/2510.15786" target="_blank" class="project-link-btn">📄 DexCanvas (ICLR 2026)</a>
+                            <a href="https://arxiv.org/abs/2510.15786" target="_blank" class="project-link-btn">📄 DexCanvas Preprint</a>
                             <a href="assets/papers/hover_iros2025_poster.pdf" target="_blank" class="project-link-btn">🎥 IROS Workshop Poster</a>
                             <a href="https://arxiv.org/abs/2511.03481" target="_blank" class="project-link-btn">📄 DexHand 021 Paper</a>
                         </div>
@@ -677,7 +711,7 @@
                             <h4>Real Human Demonstrations → Simulated MANO Hand</h4>
                             <img src="assets/dexcanvas_pipeline.png" alt="DexCanvas Pipeline" class="tab-image">
                             <p>
-                                For <strong>DexCanvas</strong> (submitted to ICLR 2026), we captured 70 hours of human demonstrations across 21 manipulation types from the Cutkosky taxonomy. Motion capture provides geometry but misses the contact forces that produce manipulation. Our RL-based force extraction trains policies to control an actuated MANO hand in simulation, reproducing observed object motion.
+                                For <strong>DexCanvas</strong>, we captured 70 hours of human demonstrations across 21 manipulation types from the Cutkosky taxonomy. Motion capture provides geometry but misses the contact forces that produce manipulation—an indispensable part of understanding what's happening during the task. Our RL-based force extraction trains policies to control an actuated MANO hand in simulation, reproducing observed object motion.
                             </p>
                             <p>
                                 The physics simulator measures contact forces impossible to obtain from mocap alone. This expands 70 hours of geometric data into 7,000 hours of physically consistent manipulation data with complete force annotations—enabling scalable learning for diverse manipulation tasks.
@@ -712,7 +746,6 @@
                             <span class="tech-tag">Isaac Gym</span>
                             <span class="tech-tag">Python</span>
                             <span class="tech-tag">ROS2</span>
-                            <span class="tech-tag">Sim-to-Real Transfer</span>
                         </div>
                     </div>
                 </div>
@@ -721,7 +754,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>IntuitCap: 60-DOF Motion Capture for Dexterous Manipulation</h3>
-                        <p class="project-meta">Shanghai Jiao Tong University | 2024-2025</p>
+                        <p class="project-meta">Research Intern at DexRobot Inc. | 2024-2025</p>
                         <div class="project-links">
                             <a href="https://www.youtube.com/watch?v=BACYYixDXss" target="_blank" class="project-link-btn">🎥 Demo Video</a>
                         </div>
@@ -741,18 +774,15 @@
                             <div class="project-details">
                                 <h4>Overview</h4>
                                 <p>
-                                    A comprehensive motion capture system integrating hardware sensing, real-time communication, and digital twin visualization for intuitive robot teleoperation.
+                                    I developed IntuitCap, a 60-DOF exoskeleton-glove system with magnetic encoders to bypass optical occlusion constraints, enabling collection of hundreds of human manipulation demonstrations across various tasks.
                                 </p>
                                 <h4>Key Features</h4>
                                 <ul>
-                                    <li>60 magnetic encoders capturing upper-body joint angles with sub-degree precision</li>
-                                    <li>Custom CANFD bus protocols for high-bandwidth sensor streaming</li>
-                                    <li>10ms end-to-end latency through optimized pipeline</li>
-                                    <li>Unity3D-based real-time visualization with haptic feedback</li>
-                                    <li>Interfaces with dual-arm JAKA robots and 19-DOF DexHand</li>
+                                    <li>60 magnetic encoders capturing upper-body motion</li>
+                                    <li>Enable mapping to telexistence (Unity Avatar) and teleoperation (robot control)</li>
                                 </ul>
                                 <p>
-                                    This full-stack integration enables intuitive teleoperation for complex manipulation tasks that would be difficult to program explicitly, bridging human intuition with robotic precision.
+                                    This system became a commercial product at DexRobot Inc., deployed for daily demonstration collection. The latest version is <a href="https://www.dex-robot.com/dexCap" target="_blank" style="color: var(--accent-color); text-decoration: none; font-weight: 500;">DexCap</a>, which is lighter than what's described in publications.
                                 </p>
                             </div>
                         </div>
@@ -770,7 +800,7 @@
                 <div class="project-card">
                     <div class="project-header">
                         <h3>Bionic Robotic Peacock</h3>
-                        <p class="project-meta">National First Prize, Mechanical Innovation Design Competition | 2023</p>
+                        <p class="project-meta">National First Prize, Mechanical Innovation Design Competition | 2022</p>
                         <div class="project-links">
                             <a href="https://www.youtube.com/watch?v=_ZRWi5l0RrA" target="_blank" class="project-link-btn">🎥 Demo Video</a>
                             <a href="https://pss-system.cponline.cnipa.gov.cn/documents/detail?prevPageTit=changgui" target="_blank" class="project-link-btn">📜 Chinese Patent</a>
@@ -794,9 +824,6 @@
                                 </p>
                                 <p>
                                     The tail uses servo motors for precise feather movements, while the neck and wings employ brushless motors for smooth motion. After several iterations on the walking gait, we achieved a confident peacock strut that brings smiles to exhibition visitors.
-                                </p>
-                                <p>
-                                    This project introduced me to embedded coordination challenges and the importance of iterative mechanical design, setting the foundation for my later work in complex robotic systems.
                                 </p>
                             </div>
                         </div>
@@ -842,22 +869,26 @@
                     <h3>Beyond the Lab</h3>
                     <div class="hobbies-content">
                         <p>
-                            Outside research, I'm drawn to science fiction that explores intelligence and identity—<em>Flowers for Algernon</em>, Ted Chiang's <em>Story of Your Life</em>, <em>Blade Runner</em>, <em>Ghost in the Shell</em>. They grapple with questions that haunt me: what constitutes consciousness? Where's the boundary between human and machine?
-                        </p>
-                        <div class="quote">
-                            Tim Cook's MIT observation resonates: he worries less about AI gaining human-like thinking than about humans thinking like computers—without values, compassion, or concern for consequences.
-                        </div>
-                        <p>
-                            These explorations of self-awareness and embodiment resurface unexpectedly when I think about what we're actually building in machine learning. I also run long distances for mental clarity—there's something meditative about the rhythm that helps process complex ideas.
+                            Outside research, I'm drawn to science fiction that explores intelligence and identity—in books like <em>Flowers for Algernon</em> and Ted Chiang's <em>Story of Your Life</em>, and films like <em>Blade Runner</em> and <em>Ghost in the Shell</em>. They grapple with questions that haunt me: what constitutes consciousness? Where's the boundary between human and machine? But what draws me most is how these stories make the familiar strange—forcing me to examine what we take for granted about being human.
                         </p>
                         <p>
-                            I believe the best robotics research emerges from this intersection of technical rigor and humanistic thinking. Working with diverse teams—from hardware engineers to AI researchers to designers—has taught me that breakthrough innovations often come from unexpected cross-pollination of ideas. This interdisciplinary approach shapes both my research philosophy and my collaborative style.
+                            I run long distances—5K to half-marathons. When I'm running well, every muscle responds precisely, and I feel both light and completely focused. These moments make me appreciate the delicate, exquisite design of the human body—how joints articulate, how force transfers through bone and tissue, how everything coordinates without conscious thought. It's one thing to study biomechanics for robot design; it's another to feel that engineering elegance from within.
                         </p>
                     </div>
                 </div>
             </div>
         </div>
     </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <span>© 2025 Jing (Daisy) Dai</span>
+            <span class="footer-divider">|</span>
+            <a href="mailto:daisy_dai@sjtu.edu.cn">daisy_dai@sjtu.edu.cn</a>
+            <span class="footer-divider">|</span>
+            <span>Last updated: November 2025</span>
+        </div>
+    </footer>
 
     <script>
         // Main tab switching
