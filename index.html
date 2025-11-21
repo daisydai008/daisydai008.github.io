@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Jing (Daisy) Dai</title>
-    <meta name="description" content="Academic CV of Jing (Daisy) Dai - M.E. in Mechanical Engineering">
+    <title>Jing (Daisy) Dai - Robotics Researcher</title>
+    <meta name="description" content="Jing (Daisy) Dai - Robotics researcher specializing in dexterous manipulation and robot learning">
     <style>
         * {
             margin: 0;
@@ -12,265 +12,375 @@
             box-sizing: border-box;
         }
 
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #34495e;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --text-light: #6c757d;
+            --bg-color: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #e9ecef;
+            --shadow: 0 2px 15px rgba(0,0,0,0.08);
+            --sidebar-width: 220px;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            font-family: 'Georgia', 'Times New Roman', serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', sans-serif;
             line-height: 1.6;
-            color: #333;
-            background-color: #f8f9fa;
-            padding: 20px 0;
+            color: var(--text-color);
+            background-color: var(--bg-color);
         }
 
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            background: white;
-            padding: 40px;
-            box-shadow: 0 0 20px rgba(0,0,0,0.1);
-            border-radius: 8px;
+        /* Left Sidebar Navigation */
+        .sidebar {
+            position: fixed;
+            left: 0;
+            top: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background: var(--primary-color);
+            color: var(--white);
+            padding: 40px 0;
+            z-index: 1000;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.1);
         }
 
-        .header {
+        .sidebar-header {
+            padding: 0 30px;
+            margin-bottom: 50px;
             text-align: center;
-            border-bottom: 3px solid #2c3e50;
-            padding-bottom: 30px;
-            margin-bottom: 40px;
         }
 
-        .profile-section {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 30px;
-            margin-bottom: 20px;
+        .sidebar-header h2 {
+            font-size: 1.4em;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
 
-        .profile-img {
-            width: 120px;
-            height: 120px;
+        .sidebar-header p {
+            font-size: 0.9em;
+            color: rgba(255, 255, 255, 0.75);
+        }
+
+        .tab-nav {
+            list-style: none;
+        }
+
+        .tab-nav li {
+            margin: 0;
+        }
+
+        .tab-button {
+            display: block;
+            width: 100%;
+            padding: 18px 30px;
+            background: none;
+            border: none;
+            color: rgba(255, 255, 255, 0.8);
+            text-align: left;
+            font-size: 1.05em;
+            font-weight: 500;
+            cursor: pointer;
+            border-left: 4px solid transparent;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+        }
+
+        .tab-button.active {
+            background: rgba(52, 152, 219, 0.15);
+            color: var(--white);
+            border-left-color: var(--accent-color);
+        }
+
+        /* Main Content */
+        .main-container {
+            margin-left: var(--sidebar-width);
+            padding: 60px 40px;
+            min-height: 100vh;
+        }
+
+        .tab-panel {
+            display: none;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .tab-panel.active {
+            display: block;
+            animation: fadeIn 0.4s ease-in;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* HOME TAB */
+        .home-hero {
+            text-align: center;
+            padding: 60px 0;
+        }
+
+        .profile-img-large {
+            width: 200px;
+            height: 200px;
             border-radius: 50%;
-            background: #e9ecef;
-            border: 3px solid #dee2e6;
+            margin: 0 auto 30px;
+            border: 5px solid var(--accent-color);
             overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
         }
 
-        .profile-img img {
+        .profile-img-large img {
             width: 100%;
             height: 100%;
             object-fit: cover;
         }
 
-        .name-title {
-            text-align: left;
-        }
-
-        .header h1 {
-            font-size: 2.5em;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-weight: normal;
-        }
-
-        .title {
-            font-size: 1.3em;
-            color: #495057;
+        .home-hero h1 {
+            font-size: 3em;
+            color: var(--primary-color);
             margin-bottom: 15px;
-            font-style: italic;
+            font-weight: 700;
         }
 
-        .contact-header {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            flex-wrap: wrap;
-            font-size: 0.95em;
-            color: #495057;
-        }
-
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-
-        .contact-item a {
-            color: #495057;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item a:hover {
-            color: #2c3e50;
-            text-decoration: underline;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            color: #2c3e50;
+        .home-hero .subtitle {
             font-size: 1.4em;
-            margin-bottom: 20px;
-            padding-bottom: 8px;
-            border-bottom: 2px solid #e9ecef;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            font-weight: bold;
+            color: var(--text-light);
+            margin-bottom: 30px;
         }
 
-        .research-interests {
-            font-size: 1.1em;
-            text-align: justify;
-            color: #495057;
-            line-height: 1.8;
-        }
-
-        .entry {
-            margin-bottom: 25px;
-            padding-left: 20px;
-            border-left: 3px solid #e9ecef;
-            position: relative;
-        }
-
-        .entry::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 9px;
-            height: 9px;
-            background: #2c3e50;
-            border-radius: 50%;
-        }
-
-        .entry-title {
-            font-weight: bold;
-            color: #2c3e50;
-            font-size: 1.1em;
-            margin-bottom: 5px;
-        }
-
-        .entry-subtitle {
-            color: #6c757d;
-            font-style: italic;
-            margin-bottom: 5px;
-        }
-
-        .entry-date {
-            color: #6c757d;
-            font-size: 0.9em;
-            margin-bottom: 10px;
-        }
-
-        .entry-description {
-            color: #495057;
+        .intro-text {
+            max-width: 800px;
+            margin: 0 auto 30px;
+            font-size: 1.15em;
+            line-height: 1.9;
+            color: var(--text-color);
             text-align: justify;
         }
 
-        .publications-list {
-            counter-reset: pub-counter;
-        }
-
-        .publication {
-            counter-increment: pub-counter;
-            margin-bottom: 25px;
-            padding-left: 30px;
-            position: relative;
-        }
-
-        .publication::before {
-            content: counter(pub-counter);
-            position: absolute;
-            left: 0;
-            top: 0;
-            background: #2c3e50;
-            color: white;
-            width: 22px;
-            height: 22px;
-            border-radius: 50%;
+        .contact-links {
             display: flex;
-            align-items: center;
             justify-content: center;
-            font-size: 0.8em;
-            font-weight: bold;
+            gap: 20px;
+            margin-top: 40px;
+            flex-wrap: wrap;
         }
 
-        .pub-title {
-            font-weight: bold;
-            color: #2c3e50;
-            margin-bottom: 5px;
-            font-size: 1.05em;
-        }
-
-        .pub-authors {
-            color: #495057;
-            margin-bottom: 5px;
-        }
-
-        .pub-venue {
-            color: #6c757d;
-            font-style: italic;
-            margin-bottom: 5px;
-        }
-
-        .pub-year {
-            color: #6c757d;
-            font-size: 0.9em;
-        }
-
-        .pub-link {
-            color: #2c3e50;
+        .contact-links a {
+            display: inline-block;
+            padding: 12px 30px;
+            background: var(--accent-color);
+            color: var(--white);
             text-decoration: none;
-            font-weight: bold;
-            margin-left: 10px;
-            font-size: 0.9em;
-            transition: color 0.3s ease;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-weight: 500;
         }
 
-        .pub-link:hover {
-            color: #34495e;
-            text-decoration: underline;
+        .contact-links a:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .video-section {
-            margin-bottom: 40px;
+        .personality-hint {
+            max-width: 700px;
+            margin: 50px auto 0;
+            font-size: 1.05em;
+            font-style: italic;
+            color: var(--text-light);
+            text-align: justify;
+            line-height: 1.7;
         }
 
-        .video-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-top: 20px;
+        /* PROJECTS TAB */
+        .section-header {
+            margin-bottom: 50px;
         }
 
-        .video-item {
-            background: #f8f9fa;
-            border-radius: 8px;
-            padding: 20px;
-            border: 1px solid #e9ecef;
+        .section-header h2 {
+            font-size: 2.5em;
+            color: var(--primary-color);
+            margin-bottom: 15px;
+            font-weight: 700;
+        }
+
+        .section-intro {
+            font-size: 1.1em;
+            color: var(--text-light);
+            line-height: 1.8;
+            text-align: justify;
+        }
+
+        .research-statement {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+            margin-bottom: 60px;
+            border-left: 5px solid var(--accent-color);
+        }
+
+        .research-statement p {
+            font-size: 1.08em;
+            line-height: 1.9;
+            color: var(--text-color);
+            text-align: justify;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 60px;
+        }
+
+        .project-card {
+            background: var(--white);
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            overflow: hidden;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        .video-item:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
         }
 
-        .video-item h3 {
-            color: #2c3e50;
-            font-size: 1.2em;
+        .project-card.featured {
+            border: 3px solid var(--accent-color);
+        }
+
+        .project-header {
+            padding: 35px;
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+        }
+
+        .project-header h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .project-meta {
+            font-size: 1em;
+            opacity: 0.9;
             margin-bottom: 15px;
-            font-weight: bold;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+
+        .project-link-btn {
+            display: inline-block;
+            padding: 8px 18px;
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+            text-decoration: none;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .project-link-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            border-color: var(--white);
+        }
+
+        .project-body {
+            padding: 35px;
+        }
+
+        /* Project Tabs */
+        .project-tabs {
+            display: flex;
+            border-bottom: 2px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .project-tab {
+            padding: 12px 25px;
+            cursor: pointer;
+            border: none;
+            background: none;
+            font-size: 1em;
+            color: var(--text-light);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .project-tab:hover {
+            color: var(--primary-color);
+        }
+
+        .project-tab.active {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        .project-tab-content {
+            display: none;
+        }
+
+        .project-tab-content.active {
+            display: block;
+        }
+
+        .project-tab-content h4 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+        }
+
+        .project-tab-content p {
+            font-size: 1.05em;
+            line-height: 1.9;
+            color: var(--text-color);
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+
+        .tab-image {
+            width: 100%;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+
+        /* Side-by-side project layout */
+        .project-split {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+            align-items: start;
         }
 
         .video-container {
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             overflow: hidden;
-            border-radius: 5px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
         }
 
         .video-container iframe {
@@ -280,226 +390,514 @@
             width: 100%;
             height: 100%;
             border: none;
-            border-radius: 5px;
         }
 
-        .pub-info {
-            color: #6c757d;
-            font-style: italic;
-            margin-bottom: 8px;
-            font-size: 0.95em;
+        .project-details h4 {
+            font-size: 1.4em;
+            color: var(--primary-color);
+            margin-bottom: 18px;
         }
 
-        .pub-tech {
-            background: #f8f9fa;
-            border-radius: 4px;
-            padding: 6px 10px;
-            margin-top: 15px;
-            font-size: 0.8em;
-            color: #495057;
-            border-left: 3px solid #2c3e50;
-        }
-
-        .pub-tech strong {
-            color: #2c3e50;
-        }
-
-        .publication .video-container {
-            margin-top: 15px;
-            margin-bottom: 15px;
-        }
-
-        .publication .entry-description {
-            color: #495057;
+        .project-details p {
+            font-size: 1.02em;
+            line-height: 1.8;
+            color: var(--text-color);
+            margin-bottom: 18px;
             text-align: justify;
-            line-height: 1.6;
-            margin-top: 10px;
-            margin-bottom: 15px;
         }
 
-        .download-section {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 30px;
-            border-top: 2px solid #e9ecef;
+        .project-details ul {
+            margin: 18px 0;
+            padding-left: 25px;
         }
 
-        .download-btn {
-            background: #2c3e50;
-            color: white;
-            padding: 15px 35px;
-            border: none;
-            border-radius: 5px;
-            font-size: 1.1em;
-            cursor: pointer;
-            text-decoration: none;
-            display: inline-block;
-            transition: background 0.3s ease;
-            font-family: inherit;
+        .project-details li {
+            margin-bottom: 10px;
+            line-height: 1.7;
+            text-align: justify;
         }
 
-        .download-btn:hover {
-            background: #34495e;
-            transform: translateY(-2px);
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 25px;
         }
 
+        .tech-tag {
+            background: var(--bg-color);
+            color: var(--text-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            border: 1px solid var(--border-color);
+        }
+
+        /* PERSONAL TAB */
+        .personal-grid {
+            display: grid;
+            gap: 50px;
+        }
+
+        .personal-section {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: var(--shadow);
+        }
+
+        .personal-section h3 {
+            font-size: 1.8em;
+            color: var(--primary-color);
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 3px solid var(--border-color);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            padding-left: 35px;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: var(--accent-color);
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 35px;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 13px;
+            height: 13px;
+            background: var(--accent-color);
+            border-radius: 50%;
+            border: 3px solid var(--white);
+            box-shadow: 0 0 0 3px var(--accent-color);
+        }
+
+        .timeline-item h4 {
+            font-size: 1.3em;
+            color: var(--primary-color);
+            margin-bottom: 8px;
+        }
+
+        .timeline-item .institution {
+            font-weight: 600;
+            color: var(--text-color);
+            margin-bottom: 5px;
+            font-size: 1.05em;
+        }
+
+        .timeline-item .date {
+            color: var(--text-light);
+            font-size: 0.95em;
+            margin-bottom: 12px;
+        }
+
+        .timeline-item p {
+            color: var(--text-color);
+            line-height: 1.7;
+            text-align: justify;
+        }
+
+        /* Hobbies */
+        .hobbies-content p {
+            font-size: 1.08em;
+            line-height: 1.9;
+            color: var(--text-color);
+            margin-bottom: 25px;
+            text-align: justify;
+        }
+
+        .quote {
+            background: var(--bg-color);
+            border-left: 5px solid var(--accent-color);
+            padding: 25px;
+            margin: 30px 0;
+            font-style: italic;
+            color: var(--text-light);
+            font-size: 1.05em;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-                margin: 10px;
+            :root {
+                --sidebar-width: 0;
             }
 
-            .profile-section {
-                flex-direction: column;
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+                padding: 20px 0;
+            }
+
+            .sidebar-header {
                 text-align: center;
+                margin-bottom: 20px;
             }
 
-            .name-title {
+            .tab-nav {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .tab-button {
+                flex: 1 1 auto;
+                min-width: 100px;
+                padding: 12px 20px;
                 text-align: center;
+                border-left: none;
+                border-bottom: 3px solid transparent;
             }
 
-            .header h1 {
+            .tab-button.active {
+                border-left: none;
+                border-bottom-color: var(--accent-color);
+            }
+
+            .main-container {
+                margin-left: 0;
+                padding: 40px 20px;
+            }
+
+            .home-hero h1 {
+                font-size: 2.2em;
+            }
+
+            .project-split {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .section-header h2 {
                 font-size: 2em;
             }
 
-            .contact-header {
-                flex-direction: column;
-                gap: 10px;
+            .project-tabs {
+                flex-wrap: wrap;
             }
 
-            .video-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-
-            .video-container {
-                padding-bottom: 56.25%; /* Maintain 16:9 aspect ratio on mobile */
+            .project-tab {
+                flex: 1 1 auto;
+                min-width: 100px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="profile-section">
-                <div class="profile-img">
+    <!-- Left Sidebar Navigation -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2>Daisy Dai</h2>
+            <p>Robotics Researcher</p>
+        </div>
+        <ul class="tab-nav">
+            <li><button class="tab-button active" data-tab="home">Home</button></li>
+            <li><button class="tab-button" data-tab="projects">Projects</button></li>
+            <li><button class="tab-button" data-tab="personal">Personal</button></li>
+        </ul>
+    </aside>
+
+    <!-- Main Content Container -->
+    <main class="main-container">
+        <!-- HOME TAB -->
+        <div id="home" class="tab-panel active">
+            <div class="home-hero">
+                <div class="profile-img-large">
                     <img src="assets/avatar.jpg" alt="Jing Dai">
                 </div>
-                <div class="name-title">
-                    <h1>Jing (Daisy) Dai</h1>
-                    <div class="title">M.E. in Mechanical Engineering</div>
-                </div>
-            </div>
-            <div class="contact-header">
-                <div class="contact-item">📧 <a href="mailto:daisy_dai@sjtu.edu.cn">daisy_dai@sjtu.edu.cn</a></div>
-                <div class="contact-item">🌐 <a href="https://github.com/daisydai008" target="_blank">github.com/daisydai008</a></div>
-                <div class="contact-item">📍 Shanghai, China</div>
-            </div>
-        </header>
-
-        <section class="section">
-            <h2>Research Statement</h2>
-            <div class="research-interests">
-                My research bridges the gap between mechatronics and AI to advance embodied intelligence through robot learning with concrete hardware implementations. I specialize in developing task-centric reinforcement learning algorithms for high-DOF dexterous robotic hands, enabling them to learn complex manipulation skills from human demonstrations. My work encompasses the full stack of robotics—from embedded systems and real-time control to advanced RL algorithms and simulation frameworks. I am particularly passionate about hardware-software co-design approaches that ensure theoretical advances translate into real-world robotic capabilities. Through my research, I aim to create robotic systems that can seamlessly collaborate with humans in manufacturing, healthcare, and daily life scenarios, ultimately pushing the boundaries of what robots can perceive, learn, and manipulate in unstructured environments.
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Education</h2>
-            <div class="entry">
-                <div class="entry-title">M.E. in Mechanical Engineering</div>
-                <div class="entry-subtitle">Shanghai Jiao Tong University</div>
-                <div class="entry-date">Sep. 2023 - June 2026 (Expected)</div>
-                <div class="entry-description">
-                    Advisor: Weixin Yan - Associate Professor of ME, SJTU<br>
-                </div>
-            </div>
-            <div class="entry">
-                <div class="entry-title">B.E. in Mechanical Design, Manufacturing and Automation</div>
-                <div class="entry-subtitle">Hunan University</div>
-                <div class="entry-date">Sep. 2019 - Jun. 2023</div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>Projects</h2>
-            <div class="publications-list">
-                <div class="publication">
-                    <div class="pub-title">IntuitCap: A 60-DOF Upper-body Motion Capture System for Dexterous Robot Manipulation</div>
-                    <div class="pub-authors">Jing Dai, Jianbo Yuan, Yiwen Lu, et al.</div>
-                    <div class="pub-info">2025</div>
-                    <div class="entry-description" style="margin-top: 10px; margin-bottom: 15px;">
-                        IntuitCap represents a comprehensive motion capture system integrating hardware sensing, real-time communication, and digital twin visualization. The system architecture spans multiple technical layers: at the hardware level, 60 magnetic encoders capture joint angles across the upper body with sub-degree precision, while custom CANFD bus protocols handle high-bandwidth sensor data streaming. The software stack includes low-level embedded firmware for sensor fusion, middleware for kinematic mapping between human and robot morphologies, and a Unity3D-based visualization layer that provides operators with real-time visual feedback. Achieving 10ms end-to-end latency required careful optimization across the entire pipeline—from ADC sampling rates to network packet scheduling. The system currently interfaces with dual-arm JAKA robots and the 19-DOF DexHand, with haptic feedback channels enabling bidirectional interaction. This full-stack integration enables intuitive teleoperation for complex manipulation tasks that would be difficult to program explicitly.
-                    </div>
-                    <div class="video-container" style="margin-top: 15px;">
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/BACYYixDXss?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=BACYYixDXss&start=3"
-                            title="IntuitCap: 60-DOF Motion Capture System Demo"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="pub-tech"><strong>Tech Stack:</strong> Unity3D, C++, CANFD, Magnetic Encoders, Force Feedback, Socket Programming</div>
-                </div>
-                <div class="publication">
-                    <div class="pub-title">Bionic Robotic Peacock</div>
-                    <div class="pub-authors">Jing Dai (Embedded System Design and Motion Control)</div>
-                    <div class="pub-info">National First Prize in Mechanical Innovation Design Competition • 2023</div>
-                    <div class="entry-description" style="margin-top: 10px; margin-bottom: 15px;">
-                        Building a robot peacock that dances is exactly as fun as it sounds. This one responds to voice commands—you can tell it to spread its tail, dance, or strut around, and it actually does it. The tricky part was coordinating 11 different motors to make the movements look natural. The tail uses servo motors for those precise feather movements, while the neck and wings need brushless motors for smoother motion. Getting the walking gait right took some iterations, but now it has this confident peacock strut that makes people smile. There's something magical about a robot bird that listens and responds at exhibitions.
-                    </div>
-                    <div class="video-container" style="margin-top: 15px;">
-                        <iframe
-                            src="https://www.youtube-nocookie.com/embed/_ZRWi5l0RrA?rel=0&modestbranding=1&autoplay=1&mute=1&loop=1&playlist=_ZRWi5l0RrA&start=3"
-                            title="Bionic Peacock Robot - Award-Winning Design"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen>
-                        </iframe>
-                    </div>
-                    <div class="pub-tech"><strong>Tech Stack:</strong> STM32, Embedded C, Voice Recognition, Servo/Brushless/Worm Gear Motors, Keil IDE</div>
-                </div>
-                <div class="publication">
-                    <div class="pub-title">Task-Centric Reinforcement Learning for High-DOF Dexterous Hands</div>
-                    <div class="pub-authors">Research Intern at DexRobot Inc.</div>
-                    <div class="pub-info">Ongoing Research • Feb. 2025 - Present</div>
-                    <div class="entry-description" style="margin-top: 10px; margin-bottom: 15px;">
-                        <p style="margin-bottom: 15px;">My research addresses how to transfer human manipulation skills to robot hands with different morphologies through a real2sim2real pipeline.</p>
-
-                        <p style="margin-bottom: 10px;"><strong>Real Human Demonstrations → Simulated MANO Hand</strong></p>
-                        <img src="assets/dexcanvas_pipeline.png" alt="DexCanvas Pipeline" style="width: 100%; margin-bottom: 15px; border-radius: 5px;">
-                        <p style="margin-bottom: 15px;">For <strong>DexCanvas</strong> (submitted to ICLR 2026), we captured 70 hours of human demonstrations across 21 manipulation types from the Cutkosky taxonomy. Motion capture provides geometry but misses the contact forces that produce manipulation. Our RL-based force extraction trains policies to control an actuated MANO hand in simulation, reproducing observed object motion. The physics simulator measures contact forces impossible to obtain from mocap alone. This expands 70 hours of geometric data into 7,000 hours of physically consistent manipulation data with complete force annotations.</p>
-
-                        <p style="margin-bottom: 10px;"><strong>Cross-Morphology Transfer: Human Hands → Robot Hands</strong></p>
-                        <img src="assets/hover_framework.png" alt="HOVER Framework" style="width: 100%; margin-bottom: 15px; border-radius: 5px;">
-                        <p style="margin-bottom: 15px;"><strong>HOVER</strong> (IROS 2025 Workshop; full paper in preparation for RSS 2026) solves the retargeting challenge through a virtual operator framework. Offline demonstrations lack the closed-loop control humans provide during teleoperation. HOVER's virtual operator simulates this adaptive behavior during training. It sees rich context and adjusts human trajectories, while the retargeting policy sees only joint angles—forcing generalizable joint-to-joint mappings that work across tasks. This achieves both task fidelity and anthropomorphism, where existing methods trade off one for the other. The virtual operator absorbs dataset artifacts while pure joint-level retargeting ensures generalization.</p>
-
-                        <p style="margin-bottom: 10px;"><strong>Sim2Real: Deployment on Real Dexterous Hands</strong></p>
-                        <img src="assets/hover_results.jpg" alt="HOVER Real-world Results" style="width: 100%; margin-bottom: 15px; border-radius: 5px;">
-                        <p style="margin-bottom: 0px;">Deployed on the 19-DOF DexHand021, HOVER demonstrates power grasps, enveloping grasps, and tool-handle grasps. The system achieves 30% efficiency improvement over baseline methods in real-world teleoperation.</p>
-                    </div>
-                    <div class="pub-tech"><strong>Tech Stack:</strong> PyTorch, MuJoCo, Isaac Gym, Python, ROS2, Real-to-Sim Transfer Learning</div>
-                </div>
-            </div>
-        </section>
-
-        <section class="section">
-            <h2>About Me</h2>
-            <div class="research-interests">
-                <p style="margin-bottom: 15px;">
-                    Outside of robotics, I enjoy reading widely—from literature to philosophy. There's something refreshing about diving into different worlds and perspectives through books. Film is another passion of mine; I appreciate how visual and audio storytelling can convey complex emotions and ideas in ways that words alone cannot.
+                <h1>Jing (Daisy) Dai</h1>
+                <p class="subtitle">M.E. in Mechanical Engineering</p>
+                <p class="intro-text">
+                    I bridge mechatronics and machine learning to advance intelligent robotic systems through hardware-software integration. My research focuses on developing task-centric reinforcement learning algorithms for high-DOF dexterous hands, enabling robots to learn complex manipulation skills from human demonstrations. I work across the full stack of robotics—from embedded systems and real-time control to advanced RL algorithms and simulation frameworks.
                 </p>
-                <p style="margin-bottom: 15px;">
-                    I'm also an avid runner. There's a meditative quality to long runs that helps clear the mind and maintain balance in life. These interests keep me grounded and curious about the world beyond the lab.
-                </p>
-                <p>
-                    I believe the best robotics research emerges from this intersection of technical rigor and humanistic thinking. Working with diverse teams—from hardware engineers to AI researchers to designers—has taught me that breakthrough innovations often come from unexpected cross-pollination of ideas. This interdisciplinary approach shapes both my research philosophy and my collaborative style.
+                <div class="contact-links">
+                    <a href="mailto:daisy_dai@sjtu.edu.cn">📧 Email</a>
+                    <a href="https://github.com/daisydai008" target="_blank">💻 GitHub</a>
+                    <a href="https://scholar.google.com/citations?view_op=list_works&hl=zh-CN&hl=zh-CN&user=EkhFsCwAAAAJ" target="_blank">🎓 Google Scholar</a>
+                    <a href="CV/cv.pdf" target="_blank">📄 Download CV</a>
+                </div>
+                <p class="personality-hint">
+                    Outside the lab, I explore questions of consciousness through science fiction and find clarity in long-distance running.
                 </p>
             </div>
-        </section>
-
-        <div class="download-section">
-            <a href="CV/cv.pdf" class="download-btn" target="_blank">📄 My CV</a>
         </div>
-    </div>
+
+        <!-- PROJECTS TAB -->
+        <div id="projects" class="tab-panel">
+            <div class="section-header">
+                <h2>Research & Projects</h2>
+                <p class="section-intro">
+                    My work spans the full robotics pipeline, combining theoretical advances in machine learning with practical hardware implementations to create robotic systems that can learn and adapt.
+                </p>
+            </div>
+
+            <div class="research-statement">
+                <p>
+                    My research bridges the gap between mechatronics and AI to advance embodied intelligence through robot learning with concrete hardware implementations. I specialize in developing task-centric reinforcement learning algorithms for high-DOF dexterous robotic hands, enabling them to learn complex manipulation skills from human demonstrations. My work encompasses the full stack of robotics—from embedded systems and real-time control to advanced RL algorithms and simulation frameworks. I am particularly passionate about hardware-software co-design approaches that ensure theoretical advances translate into real-world robotic capabilities. Through my research, I aim to create robotic systems that can seamlessly collaborate with humans in manufacturing, healthcare, and daily life scenarios, ultimately pushing the boundaries of what robots can perceive, learn, and manipulate in unstructured environments.
+                </p>
+            </div>
+
+            <div class="projects-grid">
+                <!-- Featured: DexRobot Research -->
+                <div class="project-card featured">
+                    <div class="project-header">
+                        <h3>Task-Centric Reinforcement Learning for High-DOF Dexterous Hands</h3>
+                        <p class="project-meta">Research Intern at DexRobot Inc. | Feb. 2025 - Present</p>
+                        <div class="project-links">
+                            <a href="https://arxiv.org/abs/2510.15786" target="_blank" class="project-link-btn">📄 DexCanvas (ICLR 2026)</a>
+                            <a href="assets/papers/hover_iros2025_poster.pdf" target="_blank" class="project-link-btn">🎥 IROS Workshop Poster</a>
+                            <a href="https://arxiv.org/abs/2511.03481" target="_blank" class="project-link-btn">📄 DexHand 021 Paper</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-tabs">
+                            <button class="project-tab active" data-tab="dexcanvas">DexCanvas</button>
+                            <button class="project-tab" data-tab="hover">HOVER</button>
+                            <button class="project-tab" data-tab="deployment">Real Deployment</button>
+                        </div>
+
+                        <div id="dexcanvas" class="project-tab-content active">
+                            <h4>Real Human Demonstrations → Simulated MANO Hand</h4>
+                            <img src="assets/dexcanvas_pipeline.png" alt="DexCanvas Pipeline" class="tab-image">
+                            <p>
+                                For <strong>DexCanvas</strong> (submitted to ICLR 2026), we captured 70 hours of human demonstrations across 21 manipulation types from the Cutkosky taxonomy. Motion capture provides geometry but misses the contact forces that produce manipulation. Our RL-based force extraction trains policies to control an actuated MANO hand in simulation, reproducing observed object motion.
+                            </p>
+                            <p>
+                                The physics simulator measures contact forces impossible to obtain from mocap alone. This expands 70 hours of geometric data into 7,000 hours of physically consistent manipulation data with complete force annotations—enabling scalable learning for diverse manipulation tasks.
+                            </p>
+                        </div>
+
+                        <div id="hover" class="project-tab-content">
+                            <h4>Cross-Morphology Transfer: Human Hands → Robot Hands</h4>
+                            <img src="assets/hover_framework.png" alt="HOVER Framework" class="tab-image">
+                            <p>
+                                <strong>HOVER</strong> (IROS 2025 Workshop; full paper in preparation for RSS 2026) solves the retargeting challenge through a virtual operator framework. Offline demonstrations lack the closed-loop control humans provide during teleoperation. HOVER's virtual operator simulates this adaptive behavior during training.
+                            </p>
+                            <p>
+                                It sees rich context and adjusts human trajectories, while the retargeting policy sees only joint angles—forcing generalizable joint-to-joint mappings that work across tasks. This achieves both task fidelity and anthropomorphism, where existing methods trade off one for the other. The virtual operator absorbs dataset artifacts while pure joint-level retargeting ensures generalization.
+                            </p>
+                        </div>
+
+                        <div id="deployment" class="project-tab-content">
+                            <h4>Sim2Real: Deployment on Real Dexterous Hands</h4>
+                            <img src="assets/hover_results.jpg" alt="HOVER Real-world Results" class="tab-image">
+                            <p>
+                                Deployed on the 19-DOF DexHand021, HOVER demonstrates power grasps, enveloping grasps, and tool-handle grasps. The system achieves 30% efficiency improvement over baseline methods in real-world teleoperation scenarios.
+                            </p>
+                            <p>
+                                Our real2sim2real pipeline successfully transfers human manipulation skills to robot hands with different morphologies, demonstrating the practical viability of our approach for real-world dexterous manipulation tasks.
+                            </p>
+                        </div>
+
+                        <div class="tech-stack">
+                            <span class="tech-tag">PyTorch</span>
+                            <span class="tech-tag">MuJoCo</span>
+                            <span class="tech-tag">Isaac Gym</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">ROS2</span>
+                            <span class="tech-tag">Sim-to-Real Transfer</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- IntuitCap -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>IntuitCap: 60-DOF Motion Capture for Dexterous Manipulation</h3>
+                        <p class="project-meta">Shanghai Jiao Tong University | 2024-2025</p>
+                        <div class="project-links">
+                            <a href="https://www.youtube.com/watch?v=BACYYixDXss" target="_blank" class="project-link-btn">🎥 Demo Video</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-split">
+                            <div>
+                                <div class="video-container">
+                                    <iframe
+                                        src="https://www.youtube-nocookie.com/embed/BACYYixDXss?rel=0&modestbranding=1"
+                                        title="IntuitCap Demo"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <h4>Overview</h4>
+                                <p>
+                                    A comprehensive motion capture system integrating hardware sensing, real-time communication, and digital twin visualization for intuitive robot teleoperation.
+                                </p>
+                                <h4>Key Features</h4>
+                                <ul>
+                                    <li>60 magnetic encoders capturing upper-body joint angles with sub-degree precision</li>
+                                    <li>Custom CANFD bus protocols for high-bandwidth sensor streaming</li>
+                                    <li>10ms end-to-end latency through optimized pipeline</li>
+                                    <li>Unity3D-based real-time visualization with haptic feedback</li>
+                                    <li>Interfaces with dual-arm JAKA robots and 19-DOF DexHand</li>
+                                </ul>
+                                <p>
+                                    This full-stack integration enables intuitive teleoperation for complex manipulation tasks that would be difficult to program explicitly, bridging human intuition with robotic precision.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">Unity3D</span>
+                            <span class="tech-tag">C++</span>
+                            <span class="tech-tag">CANFD</span>
+                            <span class="tech-tag">Embedded Systems</span>
+                            <span class="tech-tag">Real-time Control</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bionic Peacock -->
+                <div class="project-card">
+                    <div class="project-header">
+                        <h3>Bionic Robotic Peacock</h3>
+                        <p class="project-meta">National First Prize, Mechanical Innovation Design Competition | 2023</p>
+                        <div class="project-links">
+                            <a href="https://www.youtube.com/watch?v=_ZRWi5l0RrA" target="_blank" class="project-link-btn">🎥 Demo Video</a>
+                            <a href="https://pss-system.cponline.cnipa.gov.cn/documents/detail?prevPageTit=changgui" target="_blank" class="project-link-btn">📜 Chinese Patent</a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <div class="project-split">
+                            <div>
+                                <div class="video-container">
+                                    <iframe
+                                        src="https://www.youtube-nocookie.com/embed/_ZRWi5l0RrA?rel=0&modestbranding=1"
+                                        title="Bionic Peacock Robot"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                                        allowfullscreen>
+                                    </iframe>
+                                </div>
+                            </div>
+                            <div class="project-details">
+                                <p>
+                                    A voice-controlled robot peacock that dances, spreads its tail, and struts on command. The challenge was coordinating 11 different motors to create natural, lifelike movements that captivate audiences.
+                                </p>
+                                <p>
+                                    The tail uses servo motors for precise feather movements, while the neck and wings employ brushless motors for smooth motion. After several iterations on the walking gait, we achieved a confident peacock strut that brings smiles to exhibition visitors.
+                                </p>
+                                <p>
+                                    This project introduced me to embedded coordination challenges and the importance of iterative mechanical design, setting the foundation for my later work in complex robotic systems.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="tech-stack">
+                            <span class="tech-tag">STM32</span>
+                            <span class="tech-tag">Embedded C</span>
+                            <span class="tech-tag">Voice Recognition</span>
+                            <span class="tech-tag">Motor Control</span>
+                            <span class="tech-tag">Mechanical Design</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- PERSONAL TAB -->
+        <div id="personal" class="tab-panel">
+            <div class="section-header">
+                <h2>About Me</h2>
+            </div>
+
+            <div class="personal-grid">
+                <!-- Education -->
+                <div class="personal-section">
+                    <h3>Education</h3>
+                    <div class="timeline">
+                        <div class="timeline-item">
+                            <h4>M.E. in Mechanical Engineering</h4>
+                            <p class="institution">Shanghai Jiao Tong University</p>
+                            <p class="date">Sep. 2023 - June 2026 (Expected)</p>
+                            <p>Advisor: Weixin Yan - Associate Professor of ME, SJTU</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h4>B.E. in Mechanical Design, Manufacturing and Automation</h4>
+                            <p class="institution">Hunan University</p>
+                            <p class="date">Sep. 2019 - Jun. 2023</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hobbies & Interests -->
+                <div class="personal-section">
+                    <h3>Beyond the Lab</h3>
+                    <div class="hobbies-content">
+                        <p>
+                            Outside research, I'm drawn to science fiction that explores intelligence and identity—<em>Flowers for Algernon</em>, Ted Chiang's <em>Story of Your Life</em>, <em>Blade Runner</em>, <em>Ghost in the Shell</em>. They grapple with questions that haunt me: what constitutes consciousness? Where's the boundary between human and machine?
+                        </p>
+                        <div class="quote">
+                            Tim Cook's MIT observation resonates: he worries less about AI gaining human-like thinking than about humans thinking like computers—without values, compassion, or concern for consequences.
+                        </div>
+                        <p>
+                            These explorations of self-awareness and embodiment resurface unexpectedly when I think about what we're actually building in machine learning. I also run long distances for mental clarity—there's something meditative about the rhythm that helps process complex ideas.
+                        </p>
+                        <p>
+                            I believe the best robotics research emerges from this intersection of technical rigor and humanistic thinking. Working with diverse teams—from hardware engineers to AI researchers to designers—has taught me that breakthrough innovations often come from unexpected cross-pollination of ideas. This interdisciplinary approach shapes both my research philosophy and my collaborative style.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Main tab switching
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabPanels = document.querySelectorAll('.tab-panel');
+
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const targetTab = button.dataset.tab;
+
+                // Remove active class from all buttons and panels
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabPanels.forEach(panel => panel.classList.remove('active'));
+
+                // Add active class to clicked button and corresponding panel
+                button.classList.add('active');
+                document.getElementById(targetTab).classList.add('active');
+
+                // Scroll to top smoothly
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        });
+
+        // Project tabs for DexRobot research
+        const projectTabs = document.querySelectorAll('.project-tab');
+
+        projectTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const tabId = tab.dataset.tab;
+                const container = tab.closest('.project-body');
+
+                // Remove active class from all tabs and contents in this project
+                container.querySelectorAll('.project-tab').forEach(t => t.classList.remove('active'));
+                container.querySelectorAll('.project-tab-content').forEach(c => c.classList.remove('active'));
+
+                // Add active class to clicked tab and corresponding content
+                tab.classList.add('active');
+                container.querySelector(`#${tabId}`).classList.add('active');
+            });
+        });
+    </script>
 </body>
 </html>
