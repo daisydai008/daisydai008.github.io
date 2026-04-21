@@ -69,3 +69,5 @@ yarn-error.log*
 
 # 视频
 video/
+PROMPT.md
+LOG.md
