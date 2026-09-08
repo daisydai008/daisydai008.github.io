@@ -71,3 +71,7 @@ yarn-error.log*
 video/
 PROMPT.md
 LOG.md
+
+# 工具产物与他人个人文档
+.pi-subagents/
+CV/reference cv/
